@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="catering.MainController">
+    <top>
+      <FlowPane hgap="5.0" style="-fx-border-color: aaaaaa; -fx-border-width: 0 0 2 0;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Utente attuale:" />
+            <Label fx:id="userName" text="Username" />
+         </children>
+      </FlowPane>
+   </top>
+</BorderPane>

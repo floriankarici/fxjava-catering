@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainContainer" style="-fx-border-color: transparent; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="catering.EventListController">
+    <center>
+    <BorderPane fx:id="eventListPane">
+        <center>
+            <ListView fx:id="eventList">
+            </ListView>
+        </center>
+        <bottom>
+            <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" hgap="5" style="-fx-border-color: transparent; -fx-border-width: 5 0 0 0;">
+                <!--<Button onAction="#newMenuAction" text="Nuovo" />-->
+                <Button fx:id="createSheetButton" disable="true" onAction="#createSummarySheetAction" text="Crea" />
+                <Button fx:id="editSheetButton" disable="true" onAction="#editSheetAction" text="Modifica" />
+                <Button fx:id="deleteSheetButton" disable="true" onAction="#deleteSheetAction" text="Elimina" />
+            </FlowPane>
+        </bottom>
+   <top>
+      <Label text="Eventi disponbili" BorderPane.alignment="CENTER">
+         <!--
+          <font>
+            <Font size="20.0" />
+         </font>
+         -->
+      </Label>
+   </top>
+    </BorderPane>
+    </center>
+    </BorderPane>

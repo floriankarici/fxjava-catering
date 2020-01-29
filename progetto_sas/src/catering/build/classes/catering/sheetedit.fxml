@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="defMain" prefHeight="424.0" prefWidth="600.0" style="-fx-border-width: 5 5 5 5; -fx-border-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="catering.SummarySheetEditController">
+   <center>
+      <BorderPane fx:id="mainPane" prefHeight="405.0" prefWidth="590.0" BorderPane.alignment="CENTER">
+         <top>
+                  <BorderPane fx:id="titlePane" style="-fx-border-color: transparent; -fx-border-width: 0 0 5 0;">
+               <center>
+                  <Label fx:id="menuTitle" alignment="CENTER" contentDisplay="CENTER" text="Foglio Riepilogativo" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+               </center>
+               <right>
+                  <Button fx:id="btnTabelloneTurni" mnemonicParsing="false" onAction="#onEditMenuTitle" text="..." BorderPane.alignment="CENTER" />
+               </right>
+                  </BorderPane>
+         </top>
+         <center>
+            <HBox fx:id="detailsPane" prefHeight="100.0" prefWidth="200.0" style="-fx-border-insets: 5; -fx-border-style: solid; -fx-border-width: 1; -fx-border-color: aaaaaa;" BorderPane.alignment="CENTER">
+               <children>
+                  <BorderPane fx:id="sectionsPane" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: transparent; -fx-border-width: 5;" HBox.hgrow="ALWAYS">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <top>
+                        <Label text="Elenco cose da fare" BorderPane.alignment="CENTER" />
+                     </top>
+                     <center>
+                        <ListView fx:id="jobList" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                     </center>
+                     <bottom>
+                        <FlowPane alignment="CENTER" hgap="5.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="btnAddJob" minWidth="30.0" mnemonicParsing="false" onAction="#onAddJob" text="+" />
+                              <Button fx:id="btnRemoveJob" disable="true" minWidth="30.0" mnemonicParsing="false" onAction="#onDeleteJob" text="–" />
+                              <Button fx:id="btnRemoveAllJob" disable="true" ellipsisString="Remove All" layoutX="68.0" layoutY="16.0" minWidth="30.0" mnemonicParsing="false" onAction="#onDeleteAllJobs" text="X" />
+                              <Button fx:id="btnMoveDown" disable="true" layoutX="73.0" layoutY="15.0" minWidth="30.0" mnemonicParsing="false" onAction="#onMoveDownJob" text="↓">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnMoveUp" disable="true" layoutX="108.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#onMoveUpJob" text="↑" />
+                           </children>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </FlowPane>
+                     </bottom>
+                  </BorderPane>
+                  <BorderPane fx:id="assignmentPane" layoutX="16.0" layoutY="16.0" prefHeight="297.0" prefWidth="185.0" style="-fx-border-color: transparent; -fx-border-width: 5;" HBox.hgrow="ALWAYS">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <top>
+                        <Label fx:id="sectname" text=" Assegnamento compito" BorderPane.alignment="CENTER" />
+                     </top>
+                     <center>
+                        <ListView fx:id="assignmentList" prefHeight="292.0" prefWidth="183.0" BorderPane.alignment="CENTER" />
+                     </center>
+                     <bottom>
+                        <FlowPane alignment="CENTER" hgap="5.0" BorderPane.alignment="CENTER">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                           <children>
+                              <Button disable="true" mnemonicParsing="false" text="Button" visible="false" />
+                           </children>
+                        </FlowPane>
+                     </bottom>
+                  </BorderPane>
+                  <BorderPane fx:id="setAssegnmentPane" layoutX="305.0" layoutY="16.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: transparent; -fx-border-width: 5;" HBox.hgrow="ALWAYS">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <top>
+                        <Label text="Assegnamento Compito" BorderPane.alignment="CENTER" />
+                     </top>
+                     <center>
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: aaaaaa; -fx-padding: 5;" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Giorno:" />
+                              <DatePicker fx:id="dtpDay" />
+                              <Separator prefWidth="200.0" style="-fx-padding: 5;">
+                                 <opaqueInsets>
+                                    <Insets top="5.0" />
+                                 </opaqueInsets>
+                              </Separator>
+                              <Label text="Turno : " wrapText="true" VBox.vgrow="SOMETIMES" />
+                              <ComboBox fx:id="cmbShift" maxWidth="1.7976931348623157E308" />
+                              <Separator prefWidth="200.0" style="-fx-padding: 5;">
+                                 <opaqueInsets>
+                                    <Insets top="5.0" />
+                                 </opaqueInsets>
+                              </Separator>
+                              <Label text="Cuoco:" />
+                              <ComboBox fx:id="cmbCook" layoutX="16.0" layoutY="33.0" maxWidth="1.7976931348623157E308" />
+                              <Separator prefWidth="200.0" style="-fx-padding: 5;">
+                                 <opaqueInsets>
+                                    <Insets top="5.0" />
+                                 </opaqueInsets>
+                              </Separator>
+                              <Label text="Stima:" />
+                              <TextField fx:id="txtEval" maxWidth="-Infinity" prefHeight="25.0" prefWidth="67.0">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </TextField>
+                              <Separator prefWidth="200.0" style="-fx-padding: 5;">
+                                 <opaqueInsets>
+                                    <Insets top="5.0" />
+                                 </opaqueInsets>
+                              </Separator>
+                              <Label text="Dose:" />
+                              <TextField fx:id="txtDose" maxWidth="-Infinity" prefHeight="25.0" prefWidth="67.0" />
+                              <Separator prefWidth="200.0" style="-fx-padding: 5;">
+                                 <opaqueInsets>
+                                    <Insets top="5.0" />
+                                 </opaqueInsets>
+                              </Separator>
+                              <CheckBox fx:id="chkCompleted" mnemonicParsing="false" text="Completo" />
+                           </children>
+                        </VBox>
+                     </center>
+                     <bottom>
+                        <FlowPane alignment="CENTER" hgap="5.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="btnAddAssignment" minWidth="30.0" mnemonicParsing="false" onAction="#onOkAssignment" text="Add" />
+                              <Button fx:id="btnCancelAssignment" minWidth="30.0" mnemonicParsing="false" onAction="#onCancelAssignment" text="Remove" />
+                              <Button fx:id="btnModifyAssignment" mnemonicParsing="false" onAction="#onModifyAssignment" text="Edit" />
+                           </children>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </FlowPane>
+                     </bottom>
+                  </BorderPane>
+               </children>
+            </HBox>
+         </center></BorderPane>
+   </center>
+   <bottom>
+      <FlowPane fx:id="bottomPane" alignment="TOP_CENTER" columnHalignment="CENTER" hgap="5" style="-fx-border-color: transparent; -fx-border-width: 5 0 0 0;">
+         <children>
+            <Button fx:id="btnClose" layoutX="274.0" layoutY="15.0" onAction="#onClose" text="Close" />
+         </children>
+      </FlowPane>
+   </bottom>
+</BorderPane>

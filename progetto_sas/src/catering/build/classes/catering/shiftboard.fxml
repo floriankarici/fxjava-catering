@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainContainer" prefHeight="600.0" prefWidth="652.0" style="-fx-border-color: transparent; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="catering.ShiftBoardController">
+    <center>
+    <BorderPane fx:id="eventListPane">
+        <center>
+            <ListView fx:id="shiftList">
+            </ListView>
+        </center>
+        <bottom>
+            <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" hgap="5" style="-fx-border-color: transparent; -fx-border-width: 5 0 0 0;">
+               <children>
+                   <Button fx:id="btnCloseShiftBoard" disable="false" onAction="#onClose" text="Chiudi" />
+               </children>
+            </FlowPane>
+        </bottom>
+         <top>
+            <AnchorPane prefHeight="70.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="42.0" text="Giorno :" />
+                  <DatePicker fx:id="datepicker" layoutX="74.0" layoutY="37.0" />
+                  <Label layoutX="341.0" layoutY="42.0" text="Turno :" />
+                  <ComboBox fx:id="cmbShift" layoutX="405.0" layoutY="37.0" prefHeight="25.0" prefWidth="199.0" />
+                  <RadioButton fx:id="radioJob" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Compiti" />
+                  <RadioButton fx:id="radioFree" layoutX="145.0" layoutY="14.0" mnemonicParsing="false" text="Disponibilità" />
+               </children>
+            </AnchorPane>
+         </top>
+    </BorderPane>
+    </center>
+   <top>
+<Label text="Tabellone Turni" BorderPane.alignment="CENTER">
+         <!--
+          <font>
+            <Font size="20.0" />
+         </font>
+         -->
+      </Label>
+   </top>
+    </BorderPane>
